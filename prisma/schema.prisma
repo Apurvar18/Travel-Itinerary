@@ -1,0 +1,29 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL") // Ensure this is set correctly in your .env file
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Destination {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  country     String
+}
+
+model Itinerary {
+  id          Int    @id @default(autoincrement())
+  destination String
+  total_days  Int
+  day         Int
+  activity    String
+}
+
+
+
+
+
+
